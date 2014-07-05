@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SCParticipantsViewController: UIViewController {
+class SCParticipantsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,5 +17,22 @@ class SCParticipantsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
+
+    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+        return 1
+    }
     
+    override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    let identifier = "SCParticipantCellIdentifier"
+    
+    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!  {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as UITableViewCell
+        cell.textLabel!.text = "text"
+        
+        return cell
+    }
 }
