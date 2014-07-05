@@ -1,5 +1,5 @@
 //
-//  SignupViewController.swift
+//  LoginViewController.swift
 //  swiftcrowd
 //
 //  Created by Emil Wojtaszek on 05/07/14.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class SCSignupViewController: UIViewController {
+class SCLoginViewController: UIViewController, UIAlertViewDelegate {
     
-    override func loadView() {
-        let view_ = SCSignupView(frame: CGRectZero)
+    override func loadView()  {
+        let view_ = SCLoginView(frame: CGRectZero)
         view_.loginButton.addTarget(self, action: Selector("loginButtonAction:"), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.view = view_
@@ -20,17 +20,16 @@ class SCSignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
     
     func loginButtonAction(sender: AnyObject?) {
-        let alert = UIAlertView()
-        alert.title = "Title"
-        alert.message = "My message"
-        alert.addButtonWithTitle("Ok")
-        alert.show()
+        var alert = UIAlertController(title: "Title", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+        
     }
-    
+
 }
