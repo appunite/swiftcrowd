@@ -12,6 +12,7 @@
 		203DB25419682822002A51C6 /* SCSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203DB25119682822002A51C6 /* SCSignupViewController.swift */; };
 		203DB25619682851002A51C6 /* SCDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203DB25519682851002A51C6 /* SCDetailsViewController.swift */; };
 		203DB26219682FAD002A51C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 203DB26019682FAD002A51C6 /* Main.storyboard */; };
+		20BB8FAB19683E9400FBB801 /* SCBeaconsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB8FAA19683E9400FBB801 /* SCBeaconsManager.swift */; };
 		4C38C5F81968240800496054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38C5F71968240800496054 /* AppDelegate.swift */; };
 		4C38C5FF1968240800496054 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C38C5FE1968240800496054 /* Images.xcassets */; };
 		4C38C60B1968240900496054 /* swiftcrowdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38C60A1968240900496054 /* swiftcrowdTests.swift */; };
@@ -35,6 +36,7 @@
 		203DB25519682851002A51C6 /* SCDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCDetailsViewController.swift; path = Controllers/SCDetailsViewController.swift; sourceTree = "<group>"; };
 		203DB26119682FAD002A51C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20A3B3C8196839D80021ECE9 /* swiftcrowd-bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "swiftcrowd-bridge.h"; path = "Others/swiftcrowd-bridge.h"; sourceTree = "<group>"; };
+		20BB8FAA19683E9400FBB801 /* SCBeaconsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCBeaconsManager.swift; path = Others/SCBeaconsManager.swift; sourceTree = "<group>"; };
 		4C38C5F21968240800496054 /* swiftcrowd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftcrowd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C38C5F61968240800496054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C38C5F71968240800496054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 			name = Others;
 			sourceTree = "<group>";
 		};
+		20BB8FA919683E4C00FBB801 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				20BB8FAA19683E9400FBB801 /* SCBeaconsManager.swift */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
 		4C38C5E91968240800496054 = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +177,7 @@
 			children = (
 				4C38C5F71968240800496054 /* AppDelegate.swift */,
 				203DB24E19682816002A51C6 /* Controllers */,
+				20BB8FA919683E4C00FBB801 /* Others */,
 				203DB25B19682879002A51C6 /* Resources */,
 				4C38C5F51968240800496054 /* Supporting Files */,
 			);
@@ -344,6 +355,7 @@
 				203DB25319682822002A51C6 /* SCParticipantsViewController.swift in Sources */,
 				203DB25219682822002A51C6 /* SCLoginViewController.swift in Sources */,
 				203DB25419682822002A51C6 /* SCSignupViewController.swift in Sources */,
+				20BB8FAB19683E9400FBB801 /* SCBeaconsManager.swift in Sources */,
 				4C38C5F81968240800496054 /* AppDelegate.swift in Sources */,
 				203DB25619682851002A51C6 /* SCDetailsViewController.swift in Sources */,
 			);

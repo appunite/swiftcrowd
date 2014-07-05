@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
-class SCParticipantsViewController: UITableViewController {
-    
+class SCParticipantsViewController: UITableViewController, CLLocationManagerDelegate {
+
+    var locationManager: CLLocationManager?
+    var beaconRegion: CLBeaconRegion?
+
     struct MainStoryboard {
         struct TableViewCellIdentifiers {
             static let participantCellIdentifier = "participantCell"
@@ -21,6 +25,15 @@ class SCParticipantsViewController: UITableViewController {
         }
     }
 
+    //# Initialization
+    
+    init(style: UITableViewStyle) {
+        self.locationManager = CLLocationManager()
+        super.init(style: style)
+        
+        self.locationManager!.delegate = self
+    }
+    
     //# View Life Cicle
     
     override func viewDidLoad() {
