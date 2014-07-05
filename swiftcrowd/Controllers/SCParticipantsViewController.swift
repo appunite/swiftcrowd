@@ -1,3 +1,4 @@
+
 //
 //  ParticipantsViewController.swift
 //  swiftcrowd
@@ -7,13 +8,12 @@
 //
 
 import UIKit
-import CoreLocation
 
-class SCParticipantsViewController: UITableViewController, CLLocationManagerDelegate {
-
-    var locationManager: CLLocationManager?
-    var beaconRegion: CLBeaconRegion?
-
+class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDelegate {
+    
+    let beaconsManager: SCBeaconsManager?
+    let beacons: AnyObject[]!
+    
     struct MainStoryboard {
         struct TableViewCellIdentifiers {
             static let participantCellIdentifier = "participantCell"
@@ -25,15 +25,11 @@ class SCParticipantsViewController: UITableViewController, CLLocationManagerDele
         }
     }
 
-    //# Initialization
-    
-    init(style: UITableViewStyle) {
-        self.locationManager = CLLocationManager()
-        super.init(style: style)
-        
-        self.locationManager!.delegate = self
+    convenience init() {
+        self.init(style: UITableViewStyle.Plain)
+        self.beaconsManager = SCBeaconsManager(delegate:self, uid:1)
     }
-    
+
     //# View Life Cicle
     
     override func viewDidLoad() {
@@ -43,9 +39,9 @@ class SCParticipantsViewController: UITableViewController, CLLocationManagerDele
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
-
+    
     //# TableViewDataSource
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         return 1
     }
@@ -53,9 +49,9 @@ class SCParticipantsViewController: UITableViewController, CLLocationManagerDele
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
-
+    
     //# TableViewDelegate
-
+    
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!  {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(MainStoryboard.TableViewCellIdentifiers.participantCellIdentifier, forIndexPath: indexPath) as UITableViewCell
@@ -66,3 +62,4 @@ class SCParticipantsViewController: UITableViewController, CLLocationManagerDele
     }
     
 }
+
