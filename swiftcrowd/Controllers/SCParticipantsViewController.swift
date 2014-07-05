@@ -10,6 +10,19 @@ import UIKit
 
 class SCParticipantsViewController: UITableViewController {
     
+    struct MainStoryboard {
+        struct TableViewCellIdentifiers {
+            static let participantCellIdentifier = "participantCell"
+        }
+        
+        struct SegueIdentifiers {
+            static let loginSegueIdentifier = "loginSegue"
+            static let signupSegueIdentifier = "signupSegue"
+        }
+    }
+
+    //# View Life Cicle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -18,6 +31,8 @@ class SCParticipantsViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
+    //# TableViewDataSource
+
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         return 1
     }
@@ -25,14 +40,16 @@ class SCParticipantsViewController: UITableViewController {
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
-    
-    let identifier = "SCParticipantCellIdentifier"
-    
+
+    //# TableViewDelegate
+
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!  {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(MainStoryboard.TableViewCellIdentifiers.participantCellIdentifier, forIndexPath: indexPath) as UITableViewCell
         cell.textLabel!.text = "text"
+        cell.detailTextLabel!.text = "text22"
         
         return cell
     }
+    
 }
