@@ -10,9 +10,8 @@ import Foundation
 import CoreLocation
 import CoreBluetooth
 
-@objc
 protocol SCBeaconsManagerDelegate: NSObjectProtocol {
-    @optional func beaconsManager(manager: SCBeaconsManager!, didRangeBeacons beacons: AnyObject[]!)
+    func beaconsManager(manager: SCBeaconsManager!, didRangeBeacons beacons: AnyObject[]!)
 }
 
 class SCBeaconsManager: NSObject, CLLocationManagerDelegate, CBPeripheralManagerDelegate {
@@ -129,6 +128,6 @@ class SCBeaconsManager: NSObject, CLLocationManagerDelegate, CBPeripheralManager
     }
     
     func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: AnyObject[]!, inRegion region: CLBeaconRegion!) {
-        self.delegate?.beaconsManager!(self, didRangeBeacons:beacons)
+        self.delegate?.beaconsManager(self, didRangeBeacons:beacons)
     }
 }

@@ -8,11 +8,18 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDelegate {
+    var uids: AnyObject[]!
+    var users: SCUser[]?;
     
     let beaconsManager: SCBeaconsManager?
-    let beacons: AnyObject[]!
+    
+    @lazy var account: AUAccount = {
+        let account = AUAccount()
+        return account
+    }()
     
     struct MainStoryboard {
         struct TableViewCellIdentifiers {
@@ -28,12 +35,20 @@ class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDeleg
     convenience init() {
         self.init(style: UITableViewStyle.Plain)
         self.beaconsManager = SCBeaconsManager(delegate:self, uid:1)
+        self.beaconsManager?.startAdvertisingBeacon()
     }
 
     //# View Life Cicle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // present signup sheet
+        if self.account.isLoggedIn() {
+            let signupViewController = SCSignupViewController()
+            let navigationController = UINavigationController(rootViewController: signupViewController)
+            self.presentModalViewController(navigationController, animated:true)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -60,6 +75,17 @@ class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDeleg
         
         return cell
     }
+
+    //# SCBeaconsManagerDelegate
     
+    func beaconsManager(manager: SCBeaconsManager!, didRangeBeacons beacons: AnyObject[]!) {
+        // save beacon list
+        let uids = beacons.map{(let b) -> NSNumber in
+            let beacon: CLBeacon = b as CLBeacon
+            return beacon.minor
+        }
+        
+        self.uids = uids
+    }
 }
 

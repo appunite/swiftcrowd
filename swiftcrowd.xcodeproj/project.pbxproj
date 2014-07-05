@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		203DB25219682822002A51C6 /* SCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203DB24F19682822002A51C6 /* SCLoginViewController.swift */; };
 		203DB25319682822002A51C6 /* SCParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203DB25019682822002A51C6 /* SCParticipantsViewController.swift */; };
 		203DB25419682822002A51C6 /* SCSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203DB25119682822002A51C6 /* SCSignupViewController.swift */; };
 		203DB25619682851002A51C6 /* SCDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203DB25519682851002A51C6 /* SCDetailsViewController.swift */; };
 		203DB26219682FAD002A51C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 203DB26019682FAD002A51C6 /* Main.storyboard */; };
+		205150311968676F0001FDE6 /* SCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 205150301968676F0001FDE6 /* SCConstants.m */; };
+		209A987319685C860096DCCE /* SCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 209A987219685C860096DCCE /* SCUser.m */; };
+		209A9878196860B30096DCCE /* SCAppService.m in Sources */ = {isa = PBXBuildFile; fileRef = 209A9877196860B30096DCCE /* SCAppService.m */; };
+		209A987D196862920096DCCE /* SCAppService+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = 209A987C196862920096DCCE /* SCAppService+Query.m */; };
+		209A9880196862BB0096DCCE /* SCAppService+Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 209A987F196862BB0096DCCE /* SCAppService+Request.m */; };
 		20BB8FAB19683E9400FBB801 /* SCBeaconsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB8FAA19683E9400FBB801 /* SCBeaconsManager.swift */; };
 		4C38C5F81968240800496054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38C5F71968240800496054 /* AppDelegate.swift */; };
 		4C38C5FF1968240800496054 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C38C5FE1968240800496054 /* Images.xcassets */; };
@@ -30,11 +34,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		203DB24F19682822002A51C6 /* SCLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCLoginViewController.swift; path = Controllers/SCLoginViewController.swift; sourceTree = "<group>"; };
 		203DB25019682822002A51C6 /* SCParticipantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCParticipantsViewController.swift; path = Controllers/SCParticipantsViewController.swift; sourceTree = "<group>"; };
 		203DB25119682822002A51C6 /* SCSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCSignupViewController.swift; path = Controllers/SCSignupViewController.swift; sourceTree = "<group>"; };
 		203DB25519682851002A51C6 /* SCDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCDetailsViewController.swift; path = Controllers/SCDetailsViewController.swift; sourceTree = "<group>"; };
 		203DB26119682FAD002A51C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2051502F196867370001FDE6 /* SCConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SCConstants.h; path = Others/SCConstants.h; sourceTree = "<group>"; };
+		205150301968676F0001FDE6 /* SCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCConstants.m; path = Others/SCConstants.m; sourceTree = "<group>"; };
+		209A987119685C860096DCCE /* SCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCUser.h; path = Models/SCUser.h; sourceTree = "<group>"; };
+		209A987219685C860096DCCE /* SCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCUser.m; path = Models/SCUser.m; sourceTree = "<group>"; };
+		209A9876196860B30096DCCE /* SCAppService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCAppService.h; path = Others/SCAppService.h; sourceTree = "<group>"; };
+		209A9877196860B30096DCCE /* SCAppService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCAppService.m; path = Others/SCAppService.m; sourceTree = "<group>"; };
+		209A987B196862920096DCCE /* SCAppService+Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SCAppService+Query.h"; path = "Others/SCAppService+Query.h"; sourceTree = "<group>"; };
+		209A987C196862920096DCCE /* SCAppService+Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SCAppService+Query.m"; path = "Others/SCAppService+Query.m"; sourceTree = "<group>"; };
+		209A987E196862BB0096DCCE /* SCAppService+Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SCAppService+Request.h"; path = "Others/SCAppService+Request.h"; sourceTree = "<group>"; };
+		209A987F196862BB0096DCCE /* SCAppService+Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SCAppService+Request.m"; path = "Others/SCAppService+Request.m"; sourceTree = "<group>"; };
 		20A3B3C8196839D80021ECE9 /* swiftcrowd-bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "swiftcrowd-bridge.h"; path = "Others/swiftcrowd-bridge.h"; sourceTree = "<group>"; };
 		20BB8FAA19683E9400FBB801 /* SCBeaconsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCBeaconsManager.swift; path = Others/SCBeaconsManager.swift; sourceTree = "<group>"; };
 		4C38C5F21968240800496054 /* swiftcrowd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftcrowd.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,22 +83,12 @@
 		203DB24E19682816002A51C6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				20A3B3C7196839B50021ECE9 /* Others */,
 				203DB25D19682E66002A51C6 /* Storyboards */,
-				203DB25719682858002A51C6 /* LoginViewController */,
 				203DB25819682865002A51C6 /* SignupViewController */,
 				203DB2591968286A002A51C6 /* ParticipantsViewController */,
 				203DB25A1968286F002A51C6 /* DetailsViewController */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		203DB25719682858002A51C6 /* LoginViewController */ = {
-			isa = PBXGroup;
-			children = (
-				203DB24F19682822002A51C6 /* SCLoginViewController.swift */,
-			);
-			name = LoginViewController;
 			sourceTree = "<group>";
 		};
 		203DB25819682865002A51C6 /* SignupViewController */ = {
@@ -136,18 +139,35 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		20A3B3C7196839B50021ECE9 /* Others */ = {
+		209A987419685DFF0096DCCE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				20A3B3C8196839D80021ECE9 /* swiftcrowd-bridge.h */,
+				209A987119685C860096DCCE /* SCUser.h */,
+				209A987219685C860096DCCE /* SCUser.m */,
 			);
-			name = Others;
+			name = Models;
+			sourceTree = "<group>";
+		};
+		209A987519685E140096DCCE /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				209A9876196860B30096DCCE /* SCAppService.h */,
+				209A9877196860B30096DCCE /* SCAppService.m */,
+				209A987B196862920096DCCE /* SCAppService+Query.h */,
+				209A987C196862920096DCCE /* SCAppService+Query.m */,
+				209A987E196862BB0096DCCE /* SCAppService+Request.h */,
+				209A987F196862BB0096DCCE /* SCAppService+Request.m */,
+			);
+			name = Client;
 			sourceTree = "<group>";
 		};
 		20BB8FA919683E4C00FBB801 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				20A3B3C8196839D80021ECE9 /* swiftcrowd-bridge.h */,
 				20BB8FAA19683E9400FBB801 /* SCBeaconsManager.swift */,
+				2051502F196867370001FDE6 /* SCConstants.h */,
+				205150301968676F0001FDE6 /* SCConstants.m */,
 			);
 			name = Others;
 			sourceTree = "<group>";
@@ -176,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				4C38C5F71968240800496054 /* AppDelegate.swift */,
+				209A987519685E140096DCCE /* Client */,
+				209A987419685DFF0096DCCE /* Models */,
 				203DB24E19682816002A51C6 /* Controllers */,
 				20BB8FA919683E4C00FBB801 /* Others */,
 				203DB25B19682879002A51C6 /* Resources */,
@@ -352,10 +374,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				209A9878196860B30096DCCE /* SCAppService.m in Sources */,
+				209A987D196862920096DCCE /* SCAppService+Query.m in Sources */,
 				203DB25319682822002A51C6 /* SCParticipantsViewController.swift in Sources */,
-				203DB25219682822002A51C6 /* SCLoginViewController.swift in Sources */,
+				209A9880196862BB0096DCCE /* SCAppService+Request.m in Sources */,
 				203DB25419682822002A51C6 /* SCSignupViewController.swift in Sources */,
 				20BB8FAB19683E9400FBB801 /* SCBeaconsManager.swift in Sources */,
+				209A987319685C860096DCCE /* SCUser.m in Sources */,
+				205150311968676F0001FDE6 /* SCConstants.m in Sources */,
 				4C38C5F81968240800496054 /* AppDelegate.swift in Sources */,
 				203DB25619682851002A51C6 /* SCDetailsViewController.swift in Sources */,
 			);
@@ -504,6 +530,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/swiftcrowd.app/swiftcrowd";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -516,6 +543,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -524,6 +552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/swiftcrowd.app/swiftcrowd";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
