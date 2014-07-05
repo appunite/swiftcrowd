@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		203DB25219682822002A51C6 /* SCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203DB24F19682822002A51C6 /* SCLoginViewController.swift */; };
+		203DB25319682822002A51C6 /* SCParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203DB25019682822002A51C6 /* SCParticipantsViewController.swift */; };
+		203DB25419682822002A51C6 /* SCSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203DB25119682822002A51C6 /* SCSignupViewController.swift */; };
+		203DB25619682851002A51C6 /* SCDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203DB25519682851002A51C6 /* SCDetailsViewController.swift */; };
 		4C38C5F81968240800496054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38C5F71968240800496054 /* AppDelegate.swift */; };
-		4C38C5FA1968240800496054 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38C5F91968240800496054 /* ViewController.swift */; };
 		4C38C5FF1968240800496054 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C38C5FE1968240800496054 /* Images.xcassets */; };
 		4C38C60B1968240900496054 /* swiftcrowdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38C60A1968240900496054 /* swiftcrowdTests.swift */; };
 		85414258F3554180B045458A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 958B62D848414B14AF94A987 /* libPods.a */; };
@@ -25,10 +28,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		203DB24F19682822002A51C6 /* SCLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCLoginViewController.swift; path = Controllers/SCLoginViewController.swift; sourceTree = "<group>"; };
+		203DB25019682822002A51C6 /* SCParticipantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCParticipantsViewController.swift; path = Controllers/SCParticipantsViewController.swift; sourceTree = "<group>"; };
+		203DB25119682822002A51C6 /* SCSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCSignupViewController.swift; path = Controllers/SCSignupViewController.swift; sourceTree = "<group>"; };
+		203DB25519682851002A51C6 /* SCDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCDetailsViewController.swift; path = Controllers/SCDetailsViewController.swift; sourceTree = "<group>"; };
 		4C38C5F21968240800496054 /* swiftcrowd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftcrowd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C38C5F61968240800496054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C38C5F71968240800496054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C38C5F91968240800496054 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4C38C5FE1968240800496054 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C38C6041968240900496054 /* swiftcrowdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiftcrowdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C38C6091968240900496054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +62,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		203DB24E19682816002A51C6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				203DB25719682858002A51C6 /* LoginViewController */,
+				203DB25819682865002A51C6 /* SignupViewController */,
+				203DB2591968286A002A51C6 /* ParticipantsViewController */,
+				203DB25A1968286F002A51C6 /* DetailsViewController */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		203DB25719682858002A51C6 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				203DB24F19682822002A51C6 /* SCLoginViewController.swift */,
+			);
+			name = LoginViewController;
+			sourceTree = "<group>";
+		};
+		203DB25819682865002A51C6 /* SignupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				203DB25119682822002A51C6 /* SCSignupViewController.swift */,
+			);
+			name = SignupViewController;
+			sourceTree = "<group>";
+		};
+		203DB2591968286A002A51C6 /* ParticipantsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				203DB25019682822002A51C6 /* SCParticipantsViewController.swift */,
+			);
+			name = ParticipantsViewController;
+			sourceTree = "<group>";
+		};
+		203DB25A1968286F002A51C6 /* DetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				203DB25519682851002A51C6 /* SCDetailsViewController.swift */,
+			);
+			name = DetailsViewController;
+			sourceTree = "<group>";
+		};
+		203DB25B19682879002A51C6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4C38C5FE1968240800496054 /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		4C38C5E91968240800496054 = {
 			isa = PBXGroup;
 			children = (
@@ -80,8 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				4C38C5F71968240800496054 /* AppDelegate.swift */,
-				4C38C5F91968240800496054 /* ViewController.swift */,
-				4C38C5FE1968240800496054 /* Images.xcassets */,
+				203DB24E19682816002A51C6 /* Controllers */,
+				203DB25B19682879002A51C6 /* Resources */,
 				4C38C5F51968240800496054 /* Supporting Files */,
 			);
 			path = swiftcrowd;
@@ -253,8 +310,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C38C5FA1968240800496054 /* ViewController.swift in Sources */,
+				203DB25319682822002A51C6 /* SCParticipantsViewController.swift in Sources */,
+				203DB25219682822002A51C6 /* SCLoginViewController.swift in Sources */,
+				203DB25419682822002A51C6 /* SCSignupViewController.swift in Sources */,
 				4C38C5F81968240800496054 /* AppDelegate.swift in Sources */,
+				203DB25619682851002A51C6 /* SCDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
