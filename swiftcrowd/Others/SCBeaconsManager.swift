@@ -128,6 +128,16 @@ class SCBeaconsManager: NSObject, CLLocationManagerDelegate, CBPeripheralManager
     }
     
     func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: AnyObject[]!, inRegion region: CLBeaconRegion!) {
-        self.delegate?.beaconsManager(self, didRangeBeacons:beacons)
+
+        // cast array
+        let beaconsArray = beacons as CLBeacon[]
+        
+        // filter near beacons
+        let filteredArray = beaconsArray.filter({
+            $0.proximity == CLProximity.Immediate || $0.proximity == CLProximity.Near
+            })
+        
+        // fire delegate
+        self.delegate?.beaconsManager(self, didRangeBeacons:filteredArray)
     }
 }
