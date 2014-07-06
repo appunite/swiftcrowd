@@ -8,6 +8,9 @@
 
 #import "SCUser.h"
 
+//Others
+#import "SCConstants.h"
+
 @implementation SCUser
 
 #pragma mark -
@@ -18,7 +21,7 @@
         @"uid": @"id",
         @"displayName": @"name",
         @"twitterAccount": @"twitter",
-        @"assetURL": @"asset"
+        @"asset": @"asset"
     };
 }
 
@@ -27,6 +30,17 @@
 
 + (NSValueTransformer *)assetURLJSONTransformer {
     return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+}
+
+- (NSURL *)assetURL {
+    if (!self.asset) {
+        return nil;
+    }
+    
+    NSString *host = kAppServiceHost;
+    NSString *assetURLString = [host stringByAppendingPathComponent:self.asset];
+    
+    return [NSURL URLWithString:assetURLString];
 }
 
 @end

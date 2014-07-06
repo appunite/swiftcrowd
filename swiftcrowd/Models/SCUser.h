@@ -18,5 +18,7 @@
 @property (nonatomic, copy, readonly) NSString *twitterAccount;
 
 // image
-@property (nonatomic, copy, readonly) NSURL *assetURL;
+@property (nonatomic, copy, readonly) NSString *asset;
+
+- (NSURL *)assetURL;
 @end

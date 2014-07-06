@@ -16,7 +16,7 @@
 
 @implementation SCAppService (Query)
 
-+ (void)registerDeviceWithHandler:(void (^)(BOOL success, NSError *error))handler {
+- (void)registerDeviceWithHandler:(void (^)(BOOL success, NSError *error))handler {
 //    // get device uuid
 //    NSString *uuid = [BCAccount deviceIdentifier];
 //    
@@ -36,17 +36,17 @@
 //                         }];
 }
 
-+ (void)fetchUserWithIds:(NSNumber *)ids handler:(void (^)(NSArray *users, NSError *error))handler {
+- (void)fetchUserWithIds:(NSNumber *)ids handler:(void (^)(NSArray *users, NSError *error))handler {
     // prepare request
     NSMutableURLRequest *request = [[SCAppService sharedManager] requestFetchUserWithIds:ids];
 
     // enqueue request
-    [SCAppService enqueueRequest:request responseSerializer:[SCUserResponseSerializer serializer]
-                         success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
-
-                         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-
-                         }];
+    [self enqueueRequest:request responseSerializer:[SCUserResponseSerializer serializer]
+                 success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
+                     
+                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                     
+                 }];
 }
 
 @end

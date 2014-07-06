@@ -17,8 +17,8 @@
 + (instancetype)sharedManager;
 
 // enqueue operation in default NSOperation queue of `AFHTTPRequestOperationManager`
-+ (void)enqueueOperation:(NSOperation *)op;
+- (void)enqueueOperation:(NSOperation *)op;
 
 // enqueue operation in default NSOperation queue of `AFHTTPRequestOperationManager`
-+ (void)enqueueRequest:(NSURLRequest *)request responseSerializer:(AFHTTPResponseSerializer <AFURLResponseSerialization> *)responseSerializer success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (void)enqueueRequest:(NSURLRequest *)request responseSerializer:(AFHTTPResponseSerializer <AFURLResponseSerialization> *)responseSerializer success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 @end

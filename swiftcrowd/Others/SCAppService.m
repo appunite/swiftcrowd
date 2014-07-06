@@ -14,8 +14,6 @@
 
 @implementation SCAppService
 
-NSString *kAuthTokenHeaderKey = @"X-AUTH-TOKEN";
-
 #pragma mark -
 #pragma mark Class methods
 
@@ -33,11 +31,11 @@ NSString *kAuthTokenHeaderKey = @"X-AUTH-TOKEN";
     return __sharedInstance;
 }
 
-+ (void)enqueueOperation:(NSOperation *)op {
+- (void)enqueueOperation:(NSOperation *)op {
     [[[SCAppService sharedManager] operationQueue] addOperation:op];
 }
 
-+ (void)enqueueRequest:(NSURLRequest *)request responseSerializer:(AFHTTPResponseSerializer <AFURLResponseSerialization> *)responseSerializer success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+- (void)enqueueRequest:(NSURLRequest *)request responseSerializer:(AFHTTPResponseSerializer <AFURLResponseSerialization> *)responseSerializer success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
 
     // create operation
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -47,7 +45,7 @@ NSString *kAuthTokenHeaderKey = @"X-AUTH-TOKEN";
     [operation setCompletionBlockWithSuccess:success failure:failure];
     
     // enqueue operation
-    [SCAppService enqueueOperation:operation];
+    [self enqueueOperation:operation];
 }
 
 #pragma mark -
@@ -58,45 +56,11 @@ NSString *kAuthTokenHeaderKey = @"X-AUTH-TOKEN";
     // create new http client
     SCAppService *httpManager = [[SCAppService alloc] initWithBaseURL:baseURL];
     
-    // update `X-AUTH-TOKEN` block
-    void (^authTokenBlock)(void) = ^{
-        // get auth token
-        NSString *authToken = [[AUAccount account] authenticationToken:NULL];
-        
-        // add HTTP header
-        [httpManager.requestSerializer setValue:authToken forHTTPHeaderField:kAuthTokenHeaderKey];
-    };
-    
     // set JSON request serializer as default
     [httpManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
     
     // setup default headers
     [httpManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
-    if ([[AUAccount account] isLoggedIn]) {
-        // update `X-AUTH-TOKEN`
-        authTokenBlock();
-    }
-    
-    // we should invalidate that value on every login
-    [[NSNotificationCenter defaultCenter] addObserverForName:AUAccountDidLoginUserNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        // update `X-AUTH-TOKEN`
-        authTokenBlock();
-    }];
-    
-    // handle error globally
-    [[NSNotificationCenter defaultCenter] addObserverForName:AFNetworkingOperationDidFinishNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        AFHTTPRequestOperation *operation = (AFHTTPRequestOperation *)[note object];
-        
-        // get response status code
-        NSInteger statusCode = (NSInteger)[operation.response statusCode];
-        
-        // send error to Crashlytics if needed
-        if (![operation.responseSerializer.acceptableStatusCodes containsIndex:statusCode] && statusCode > 99) {
-            NSLog(@"HTTP Error: %li", (long)[operation.response statusCode]);
-//            NSLog(@"HTTP Error: %li, %@", (long)[operation.response statusCode], [TTTURLRequestFormatter cURLCommandFromURLRequest:operation.request]);
-        }
-    }];
     
     return httpManager;
 }

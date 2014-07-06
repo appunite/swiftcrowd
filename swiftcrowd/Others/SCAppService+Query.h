@@ -12,6 +12,6 @@
 #import "SCAppService.h"
 
 @interface SCAppService (Query)
-+ (void)registerDeviceWithHandler:(void (^)(BOOL success, NSError *error))handler;
-+ (void)fetchUserWithIds:(NSNumber *)ids handler:(void (^)(NSArray *user, NSError *error))handler;
+- (void)registerDeviceWithHandler:(void (^)(BOOL success, NSError *error))handler;
+- (void)fetchUserWithIds:(NSNumber *)ids handler:(void (^)(NSArray *users, NSError *error))handler;
 @end

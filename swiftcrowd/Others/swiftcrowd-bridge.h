@@ -13,6 +13,10 @@
 
 //Service
 #import "SCAppService.h"
+#import "SCAppService+Query.h"
 
 //Models
 #import "SCUser.h"
+
+//Categories
+#import "UIImageView+AFNetworking.h"

@@ -11,16 +11,15 @@ import UIKit
 import CoreLocation
 
 class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDelegate {
+    // populate collctions
     var uids: AnyObject[]!
-    var users: SCUser[]?;
-    
+    var users: AnyObject[]?;
+
+    // manage detected beacons
     let beaconsManager: SCBeaconsManager?
-    
-    
-    @lazy var account: AUAccount = {
-        let account = AUAccount()
-        return account
-    }()
+
+    // fetch timer
+    var timer: NSTimer?
     
     struct MainStoryboard {
         struct TableViewCellIdentifiers {
@@ -45,7 +44,7 @@ class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDeleg
         super.viewDidLoad()
 
         // present signup sheet
-        if self.account.isLoggedIn() {
+        if SCAccount.account.isLoggedIn() {
             let signupViewController = SCSignupViewController()
             let navigationController = UINavigationController(rootViewController: signupViewController)
             self.presentModalViewController(navigationController, animated:true)
@@ -63,16 +62,28 @@ class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDeleg
     }
     
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if let users = self.users {
+            return users.count
+        }
+        
+        return 0
     }
     
     //# TableViewDelegate
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!  {
         
+        // dequeue cell
         let cell = tableView.dequeueReusableCellWithIdentifier(MainStoryboard.TableViewCellIdentifiers.participantCellIdentifier, forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel!.text = "text"
-        cell.detailTextLabel!.text = "text22"
+
+        let _users = self.users as SCUser[]
+        
+        // get user
+        let user: SCUser = _users[indexPath.row]
+        
+        cell.textLabel!.text = user.displayName
+        cell.detailTextLabel!.text = user.twitterAccount
+        cell.imageView.setImageWithURL(user.assetURL())
         
         return cell
     }
@@ -87,6 +98,28 @@ class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDeleg
         }
         
         self.uids = uids
+    }
+    
+    //# Private
+    
+    func refetchNewData(ids: AnyObject[]!) {
+
+        // fetch completition block -> save new users list, relaod data
+        func fetchBlock(users: AnyObject[]!, error: NSError!) -> Void {
+            if (!error) {
+                self.users = users;
+                self.tableView.reloadData()
+            }
+            
+            var timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("timerAction"), userInfo: nil, repeats: true)
+        }
+        
+//        let manager: SCAppService = SCAppService.sharedManager()
+//        manager.fetchUserWithIds(ids, handler: fetchBlock)
+    }
+    
+    func timerAction() {
+        self.refetchNewData(self.uids);
     }
 }
 
