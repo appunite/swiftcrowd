@@ -16,6 +16,6 @@
 @interface SCAppService (Query)
 
 + (void)createUserWithTwitterCredentials:(NSDictionary *)dict handler:(void (^)(AUAccount *account, BOOL success, NSError *error))handler;
-- (void)fetchUserWithIds:(NSNumber *)ids handler:(void (^)(NSArray *users, NSError *error))handler;
+- (void)fetchUserWithIds:(NSArray *)ids handler:(void (^)(NSArray *users, NSError *error))handler;
 
 @end

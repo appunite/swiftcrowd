@@ -20,15 +20,6 @@
  *
  *  @return `NSMutableURLRequest` object
  */
-- (NSMutableURLRequest *)requestRegisterUserWithTwitterAccount:(NSString *)twitter;
-
-/**
- *  Prepare POST request to register user's device
- *
- *  @param twitter Twitter account name
- *
- *  @return `NSMutableURLRequest` object
- */
 - (NSMutableURLRequest *)requestRegisterUserWithTwitterTokens:(NSDictionary *)twitterTokens;
 
 /**
@@ -38,6 +29,6 @@
  *
  *  @return `NSMutableURLRequest` object
  */
-- (NSMutableURLRequest *)requestFetchUserWithIds:(NSNumber *)ids;
+- (NSMutableURLRequest *)requestFetchUserWithIds:(NSArray *)ids;
 
 @end

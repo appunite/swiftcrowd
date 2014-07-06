@@ -23,21 +23,12 @@
     
 }
 
-- (NSMutableURLRequest *)requestRegisterUserWithTwitterAccount:(NSString *)twitter {
-    NSParameterAssert(twitter);
-    
-    return [self.requestSerializer requestWithMethod:@"POST"
-                                           URLString:[NSString stringWithFormat:@"%@/api/v1/signup", kAppServiceHost]
-                                          parameters:nil
-                                               error:NULL];
-}
-
-- (NSMutableURLRequest *)requestFetchUserWithIds:(NSNumber *)ids {
+- (NSMutableURLRequest *)requestFetchUserWithIds:(NSArray *)ids {
     NSParameterAssert(ids);
    
     return [self.requestSerializer requestWithMethod:@"GET"
                                            URLString:[NSString stringWithFormat:@"%@/api/v1/users", kAppServiceHost]
-                                          parameters:@{@"ids": ids}
+                                          parameters:@{@"ids": [NSSet setWithArray:ids]}
                                                error:NULL];
 }
 

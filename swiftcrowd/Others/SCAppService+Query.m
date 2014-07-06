@@ -37,16 +37,16 @@
     
 }
 
-- (void)fetchUserWithIds:(NSNumber *)ids handler:(void (^)(NSArray *users, NSError *error))handler {
+- (void)fetchUserWithIds:(NSArray *)ids handler:(void (^)(NSArray *users, NSError *error))handler {
     // prepare request
     NSMutableURLRequest *request = [[SCAppService sharedManager] requestFetchUserWithIds:ids];
 
     // enqueue request
     [self enqueueRequest:request responseSerializer:[SCUserResponseSerializer serializer]
                  success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
-                     
+                     handler(response[@"users"], nil);
                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                     
+                     handler(nil, error);
                  }];
 }
 

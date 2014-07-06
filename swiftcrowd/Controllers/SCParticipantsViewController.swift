@@ -16,7 +16,7 @@ class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDeleg
     var users: AnyObject[]?;
 
     // manage detected beacons
-    let beaconsManager: SCBeaconsManager?
+    var beaconsManager: SCBeaconsManager?
 
     // fetch timer
     var timer: NSTimer?
@@ -34,8 +34,9 @@ class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDeleg
 
     convenience init() {
         self.init(style: UITableViewStyle.Plain)
-        self.beaconsManager = SCBeaconsManager(delegate:self, uid:1)
-        self.beaconsManager?.startAdvertisingBeacon()
+
+        // turn on advertising and and ranging
+        self.turnOnLocation()
     }
 
     //# View Life Cicle
@@ -44,10 +45,14 @@ class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDeleg
         super.viewDidLoad()
 
         // present signup sheet
-        if SCAccount.account.isLoggedIn() {
+        if !SCAccount.account.isLoggedIn() {
             let signupViewController = SCSignupViewController()
             let navigationController = UINavigationController(rootViewController: signupViewController)
             self.presentModalViewController(navigationController, animated:true)
+        }
+        
+        else {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "didLoggedIn:", name: AUAccountDidLoginUserNotification, object: nil)
         }
     }
     
@@ -105,21 +110,40 @@ class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDeleg
     func refetchNewData(ids: AnyObject[]!) {
 
         // fetch completition block -> save new users list, relaod data
-        func fetchBlock(users: AnyObject[]!, error: NSError!) -> Void {
+        func fetchBlock(users: AnyObject[]?, error: NSError?) {
             if (!error) {
                 self.users = users;
                 self.tableView.reloadData()
             }
-            
-            var timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("timerAction"), userInfo: nil, repeats: true)
+
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("timerAction"), userInfo: nil, repeats: true)
         }
         
-//        let manager: SCAppService = SCAppService.sharedManager()
-//        manager.fetchUserWithIds(ids, handler: fetchBlock)
+        let manager: SCAppService = SCAppService.sharedManager()
+        manager.fetchUserWithIds(ids, handler: fetchBlock)
     }
     
     func timerAction() {
         self.refetchNewData(self.uids);
     }
+    
+    func turnOnLocation() {
+        if SCAccount.account.isLoggedIn() {
+
+            // get user uid
+            let uid = 1 as CLBeaconMinorValue
+            
+            // create manager, start advertising and ranging
+            self.beaconsManager = SCBeaconsManager(delegate:self, uid:uid)
+            self.beaconsManager?.startAdvertisingBeacon()
+            self.beaconsManager?.startRangingForBeacons()
+        }
+    }
+    
+    func didLoggedIn(note: NSNotification) {
+        // turn on advertising and and ranging
+        self.turnOnLocation()
+    }
+    
 }
 
