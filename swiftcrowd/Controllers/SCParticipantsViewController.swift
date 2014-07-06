@@ -49,10 +49,9 @@ class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDeleg
             let signupViewController = SCSignupViewController()
             let navigationController = UINavigationController(rootViewController: signupViewController)
             self.presentModalViewController(navigationController, animated:true)
-        }
-        
-        else {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "didLoggedIn:", name: AUAccountDidLoginUserNotification, object: nil)
+
+            // add notification - login action
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didLoggedIn:"), name: AUAccountDidLoginUserNotification, object: nil)
         }
     }
     
