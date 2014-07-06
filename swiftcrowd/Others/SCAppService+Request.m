@@ -22,7 +22,7 @@
                                                error:NULL];
 }
 
-- (NSMutableURLRequest *)fetchUserWithIds:(NSNumber *)ids {
+- (NSMutableURLRequest *)requestFetchUserWithIds:(NSNumber *)ids {
     NSParameterAssert(ids);
    
     return [self.requestSerializer requestWithMethod:@"GET"

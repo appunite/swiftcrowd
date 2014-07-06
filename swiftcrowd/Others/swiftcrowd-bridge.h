@@ -11,5 +11,8 @@
 #import "Mantle.h"
 #import "AUAccount.h"
 
+//Service
+#import "SCAppService.h"
+
 //Models
 #import "SCUser.h"

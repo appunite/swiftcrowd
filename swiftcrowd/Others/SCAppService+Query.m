@@ -8,6 +8,12 @@
 
 #import "SCAppService+Query.h"
 
+//Requests
+#import "SCAppService+Request.h"
+
+//Serializers
+#import "SCUserResponseSerializer.h"
+
 @implementation SCAppService (Query)
 
 + (void)registerDeviceWithHandler:(void (^)(BOOL success, NSError *error))handler {
@@ -16,7 +22,7 @@
 //    
 //    // prepare request
 //    NSMutableURLRequest *request = [[BCAppService sharedManager] requestRegisterDeviceWithUUID:uuid];
-//    
+//
 //    // enqueue request
 //    [BCAppService enqueueRequest:request responseSerializer:[AFJSONResponseSerializer serializer]
 //                         success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
@@ -30,8 +36,17 @@
 //                         }];
 }
 
-+ (void)fetchUserWithIds:(NSNumber *)ids handler:(void (^)(NSArray *user, NSError *error))handler {
-    
++ (void)fetchUserWithIds:(NSNumber *)ids handler:(void (^)(NSArray *users, NSError *error))handler {
+    // prepare request
+    NSMutableURLRequest *request = [[SCAppService sharedManager] requestFetchUserWithIds:ids];
+
+    // enqueue request
+    [SCAppService enqueueRequest:request responseSerializer:[SCUserResponseSerializer serializer]
+                         success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
+
+                         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+                         }];
 }
 
 @end

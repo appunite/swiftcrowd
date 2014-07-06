@@ -16,6 +16,7 @@ class SCParticipantsViewController: UITableViewController, SCBeaconsManagerDeleg
     
     let beaconsManager: SCBeaconsManager?
     
+    
     @lazy var account: AUAccount = {
         let account = AUAccount()
         return account

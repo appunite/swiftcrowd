@@ -29,6 +29,6 @@
  *
  *  @return `NSMutableURLRequest` object
  */
-- (NSMutableURLRequest *)fetchUserWithIds:(NSNumber *)ids;
+- (NSMutableURLRequest *)requestFetchUserWithIds:(NSNumber *)ids;
 
 @end

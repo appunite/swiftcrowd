@@ -12,6 +12,7 @@
 		203DB25619682851002A51C6 /* SCDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203DB25519682851002A51C6 /* SCDetailsViewController.swift */; };
 		203DB26219682FAD002A51C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 203DB26019682FAD002A51C6 /* Main.storyboard */; };
 		205150311968676F0001FDE6 /* SCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 205150301968676F0001FDE6 /* SCConstants.m */; };
+		2051503919694B920001FDE6 /* SCUserResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2051503819694B920001FDE6 /* SCUserResponseSerializer.m */; };
 		209A987319685C860096DCCE /* SCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 209A987219685C860096DCCE /* SCUser.m */; };
 		209A9878196860B30096DCCE /* SCAppService.m in Sources */ = {isa = PBXBuildFile; fileRef = 209A9877196860B30096DCCE /* SCAppService.m */; };
 		209A987D196862920096DCCE /* SCAppService+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = 209A987C196862920096DCCE /* SCAppService+Query.m */; };
@@ -45,6 +46,8 @@
 		203DB26119682FAD002A51C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2051502F196867370001FDE6 /* SCConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SCConstants.h; path = Others/SCConstants.h; sourceTree = "<group>"; };
 		205150301968676F0001FDE6 /* SCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCConstants.m; path = Others/SCConstants.m; sourceTree = "<group>"; };
+		2051503719694B920001FDE6 /* SCUserResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCUserResponseSerializer.h; path = Others/SCUserResponseSerializer.h; sourceTree = "<group>"; };
+		2051503819694B920001FDE6 /* SCUserResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCUserResponseSerializer.m; path = Others/SCUserResponseSerializer.m; sourceTree = "<group>"; };
 		209A987119685C860096DCCE /* SCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCUser.h; path = Models/SCUser.h; sourceTree = "<group>"; };
 		209A987219685C860096DCCE /* SCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCUser.m; path = Models/SCUser.m; sourceTree = "<group>"; };
 		209A9876196860B30096DCCE /* SCAppService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCAppService.h; path = Others/SCAppService.h; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				209A987C196862920096DCCE /* SCAppService+Query.m */,
 				209A987E196862BB0096DCCE /* SCAppService+Request.h */,
 				209A987F196862BB0096DCCE /* SCAppService+Request.m */,
+				2051503719694B920001FDE6 /* SCUserResponseSerializer.h */,
+				2051503819694B920001FDE6 /* SCUserResponseSerializer.m */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -401,6 +406,7 @@
 				20BB8FAB19683E9400FBB801 /* SCBeaconsManager.swift in Sources */,
 				209A987319685C860096DCCE /* SCUser.m in Sources */,
 				205150311968676F0001FDE6 /* SCConstants.m in Sources */,
+				2051503919694B920001FDE6 /* SCUserResponseSerializer.m in Sources */,
 				4C38C5F81968240800496054 /* AppDelegate.swift in Sources */,
 				4CD0E75419686CEB008FE1E3 /* SCSignupView.swift in Sources */,
 				203DB25619682851002A51C6 /* SCDetailsViewController.swift in Sources */,
