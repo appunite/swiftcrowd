@@ -18,10 +18,10 @@ class SCSignupView: UIView {
         let bgImage = UIImage(named: "loginBackground")
         bgImageView.image = bgImage;
         
-        loginButton.setBackgroundImage(UIImage(named: "LoginButtonBg").resizableImageWithCapInsets(UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0)), forState: UIControlState.Normal)
-        loginButton.setImage(UIImage(named: "twitterIcon"), forState: UIControlState.Normal)
-        loginButton.setTitle("Login with Twitter", forState: UIControlState.Normal)
-        loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        loginButton.setBackgroundImage(UIImage(named: "LoginButtonBg").resizableImageWithCapInsets(UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0)), forState: .Normal)
+        loginButton.setImage(UIImage(named: "twitterIcon"), forState: .Normal)
+        loginButton.setTitle("Login with Twitter", forState: .Normal)
+        loginButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         loginButton.titleLabel.font = UIFont(name: "HelveticaNeue-Regular", size: 16.0)
         loginButton.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 30.0)
         

@@ -11,7 +11,11 @@
 //Others
 #import "SCAppService.h"
 
+@class AUAccount;
+
 @interface SCAppService (Query)
-- (void)registerDeviceWithHandler:(void (^)(BOOL success, NSError *error))handler;
+
++ (void)createUserWithTwitterCredentials:(NSDictionary *)dict handler:(void (^)(AUAccount *account, BOOL success, NSError *error))handler;
 - (void)fetchUserWithIds:(NSNumber *)ids handler:(void (^)(NSArray *users, NSError *error))handler;
+
 @end

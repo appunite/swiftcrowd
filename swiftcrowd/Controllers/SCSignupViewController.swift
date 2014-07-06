@@ -8,11 +8,14 @@
 
 import UIKit
 
+import Accounts
+import Social
+
 class SCSignupViewController: UIViewController {
     
     override func loadView() {
         let view_ = SCSignupView(frame: CGRectZero)
-        view_.loginButton.addTarget(self, action: Selector("loginButtonAction:"), forControlEvents: UIControlEvents.TouchUpInside)
+        view_.loginButton.addTarget(self, action: Selector("loginButtonAction:"), forControlEvents: .TouchUpInside)
         
         self.view = view_
     }
@@ -26,11 +29,34 @@ class SCSignupViewController: UIViewController {
     }
     
     func loginButtonAction(sender: AnyObject?) {
+        
+        func loginHandler(account: AUAccount?, success: Bool, error: NSError!) {
+            if (success) {
+                let user = SCAccount.account.user
+                self.dismissModalViewControllerAnimated(true)
+            } else {
+                showErrorMessage(error!)
+            }
+        }
+        
+        func socialAuthHandler(success: Bool, tokens: NSDictionary?, error: NSError?) {
+            if (success) {
+                SCAppService.createUserWithTwitterCredentials(tokens, handler: loginHandler);
+            } else {
+                showErrorMessage(error!)
+            }
+        }
+        
+        YPSocialAuth.credentialForAccount(ACAccountTypeIdentifierTwitter, handler: socialAuthHandler)
+    }
+    
+    func showErrorMessage(error: NSError) {
         let alert = UIAlertView()
-        alert.title = "Title"
-        alert.message = "My message"
+        alert.title = "Error"
+        alert.message = error.localizedDescription
         alert.addButtonWithTitle("Ok")
         alert.show()
     }
+    
     
 }

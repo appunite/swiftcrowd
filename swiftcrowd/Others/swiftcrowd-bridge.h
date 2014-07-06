@@ -20,3 +20,8 @@
 
 //Categories
 #import "UIImageView+AFNetworking.h"
+#import "SCAppService.h"
+#import "SCAppService+Query.h"
+
+//Auth
+#import "YPSocialAuth.h"

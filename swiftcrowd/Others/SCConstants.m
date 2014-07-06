@@ -9,4 +9,4 @@
 #import "SCConstants.h"
 
 // Application service host address
-NSString * const kAppServiceHost = @"http://localhost:3000";
+NSString * const kAppServiceHost = @"https://swiftcrowd.appunite.com";

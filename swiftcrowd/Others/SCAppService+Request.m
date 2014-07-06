@@ -13,6 +13,16 @@
 
 @implementation SCAppService (Request)
 
+- (NSMutableURLRequest *)requestRegisterUserWithTwitterTokens:(NSDictionary *)twitterTokens {
+    NSParameterAssert(twitterTokens);
+    
+    return [self.requestSerializer requestWithMethod:@"POST"
+                                           URLString:[NSString stringWithFormat:@"%@/api/v1/token", kAppServiceHost]
+                                          parameters:@{@"twitter": twitterTokens}
+                                               error:NULL];
+    
+}
+
 - (NSMutableURLRequest *)requestRegisterUserWithTwitterAccount:(NSString *)twitter {
     NSParameterAssert(twitter);
     

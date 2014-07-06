@@ -23,9 +23,15 @@
 		4C38C60B1968240900496054 /* swiftcrowdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38C60A1968240900496054 /* swiftcrowdTests.swift */; };
 		4C5686671968494300A1E8FC /* SCAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5686661968494300A1E8FC /* SCAccount.swift */; };
 		4CD0E75419686CEB008FE1E3 /* SCSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0E75319686CEB008FE1E3 /* SCSignupView.swift */; };
-		4CD0E75819686EAD008FE1E3 /* twitterIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CD0E75519686EAD008FE1E3 /* twitterIcon@2x.png */; };
-		4CD0E75919686EAD008FE1E3 /* loginButtonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CD0E75619686EAD008FE1E3 /* loginButtonBg@2x.png */; };
-		4CD0E75A19686EAD008FE1E3 /* loginBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CD0E75719686EAD008FE1E3 /* loginBackground@2x.png */; };
+		4CD0E75C1968752B008FE1E3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD0E75B1968752B008FE1E3 /* Social.framework */; };
+		4CD0E75E1968773F008FE1E3 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD0E75D1968773F008FE1E3 /* Twitter.framework */; };
+		4CD0E76E196945DB008FE1E3 /* AUSocialAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0E767196945DB008FE1E3 /* AUSocialAuth.m */; };
+		4CD0E76F196945DB008FE1E3 /* AUTwitterAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0E769196945DB008FE1E3 /* AUTwitterAuth.m */; };
+		4CD0E770196945DB008FE1E3 /* YPSocialAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0E76B196945DB008FE1E3 /* YPSocialAuth.m */; };
+		4CD0E77619695478008FE1E3 /* SCAppUserResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0E77519695478008FE1E3 /* SCAppUserResponseSerializer.m */; };
+		4CE6191B196964CD0008C0DF /* twitterIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE61918196964CD0008C0DF /* twitterIcon@2x.png */; };
+		4CE6191C196964CD0008C0DF /* loginButtonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE61919196964CD0008C0DF /* loginButtonBg@2x.png */; };
+		4CE6191D196964CD0008C0DF /* loginBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE6191A196964CD0008C0DF /* loginBackground@2x.png */; };
 		85414258F3554180B045458A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 958B62D848414B14AF94A987 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -67,9 +73,19 @@
 		4C38C60A1968240900496054 /* swiftcrowdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftcrowdTests.swift; sourceTree = "<group>"; };
 		4C5686661968494300A1E8FC /* SCAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCAccount.swift; path = Others/SCAccount.swift; sourceTree = "<group>"; };
 		4CD0E75319686CEB008FE1E3 /* SCSignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCSignupView.swift; path = Views/SCSignupView.swift; sourceTree = "<group>"; };
-		4CD0E75519686EAD008FE1E3 /* twitterIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "twitterIcon@2x.png"; path = "../../../../Desktop/twitterIcon@2x.png"; sourceTree = "<group>"; };
-		4CD0E75619686EAD008FE1E3 /* loginButtonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loginButtonBg@2x.png"; path = "../../../../Desktop/loginButtonBg@2x.png"; sourceTree = "<group>"; };
-		4CD0E75719686EAD008FE1E3 /* loginBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loginBackground@2x.png"; path = "../../../../Desktop/loginBackground@2x.png"; sourceTree = "<group>"; };
+		4CD0E75B1968752B008FE1E3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		4CD0E75D1968773F008FE1E3 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		4CD0E766196945DB008FE1E3 /* AUSocialAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUSocialAuth.h; path = Others/Auth/AUSocialAuth.h; sourceTree = "<group>"; };
+		4CD0E767196945DB008FE1E3 /* AUSocialAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AUSocialAuth.m; path = Others/Auth/AUSocialAuth.m; sourceTree = "<group>"; };
+		4CD0E768196945DB008FE1E3 /* AUTwitterAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUTwitterAuth.h; path = Others/Auth/AUTwitterAuth.h; sourceTree = "<group>"; };
+		4CD0E769196945DB008FE1E3 /* AUTwitterAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AUTwitterAuth.m; path = Others/Auth/AUTwitterAuth.m; sourceTree = "<group>"; };
+		4CD0E76A196945DB008FE1E3 /* YPSocialAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YPSocialAuth.h; path = Others/Auth/YPSocialAuth.h; sourceTree = "<group>"; };
+		4CD0E76B196945DB008FE1E3 /* YPSocialAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YPSocialAuth.m; path = Others/Auth/YPSocialAuth.m; sourceTree = "<group>"; };
+		4CD0E77419695478008FE1E3 /* SCAppUserResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCAppUserResponseSerializer.h; path = Others/SCAppUserResponseSerializer.h; sourceTree = "<group>"; };
+		4CD0E77519695478008FE1E3 /* SCAppUserResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCAppUserResponseSerializer.m; path = Others/SCAppUserResponseSerializer.m; sourceTree = "<group>"; };
+		4CE61918196964CD0008C0DF /* twitterIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitterIcon@2x.png"; sourceTree = "<group>"; };
+		4CE61919196964CD0008C0DF /* loginButtonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginButtonBg@2x.png"; sourceTree = "<group>"; };
+		4CE6191A196964CD0008C0DF /* loginBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground@2x.png"; sourceTree = "<group>"; };
 		725BB748EF684982B7CC44C5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		958B62D848414B14AF94A987 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CD0E75E1968773F008FE1E3 /* Twitter.framework in Frameworks */,
+				4CD0E75C1968752B008FE1E3 /* Social.framework in Frameworks */,
 				85414258F3554180B045458A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,9 +151,9 @@
 		203DB25B19682879002A51C6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4CD0E75519686EAD008FE1E3 /* twitterIcon@2x.png */,
-				4CD0E75619686EAD008FE1E3 /* loginButtonBg@2x.png */,
-				4CD0E75719686EAD008FE1E3 /* loginBackground@2x.png */,
+				4CE61918196964CD0008C0DF /* twitterIcon@2x.png */,
+				4CE61919196964CD0008C0DF /* loginButtonBg@2x.png */,
+				4CE6191A196964CD0008C0DF /* loginBackground@2x.png */,
 				4C38C5FE1968240800496054 /* Images.xcassets */,
 			);
 			name = Resources;
@@ -176,6 +194,8 @@
 				209A987F196862BB0096DCCE /* SCAppService+Request.m */,
 				2051503719694B920001FDE6 /* SCUserResponseSerializer.h */,
 				2051503819694B920001FDE6 /* SCUserResponseSerializer.m */,
+				4CD0E77419695478008FE1E3 /* SCAppUserResponseSerializer.h */,
+				4CD0E77519695478008FE1E3 /* SCAppUserResponseSerializer.m */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -183,6 +203,7 @@
 		20BB8FA919683E4C00FBB801 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				4CD0E761196945CD008FE1E3 /* Auth */,
 				20A3B3C8196839D80021ECE9 /* swiftcrowd-bridge.h */,
 				20BB8FAA19683E9400FBB801 /* SCBeaconsManager.swift */,
 				2051502F196867370001FDE6 /* SCConstants.h */,
@@ -251,9 +272,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4CD0E761196945CD008FE1E3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				4CD0E766196945DB008FE1E3 /* AUSocialAuth.h */,
+				4CD0E767196945DB008FE1E3 /* AUSocialAuth.m */,
+				4CD0E768196945DB008FE1E3 /* AUTwitterAuth.h */,
+				4CD0E769196945DB008FE1E3 /* AUTwitterAuth.m */,
+				4CD0E76A196945DB008FE1E3 /* YPSocialAuth.h */,
+				4CD0E76B196945DB008FE1E3 /* YPSocialAuth.m */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
 		E7190752E9F14D5CB768542A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CD0E75D1968773F008FE1E3 /* Twitter.framework */,
+				4CD0E75B1968752B008FE1E3 /* Social.framework */,
 				958B62D848414B14AF94A987 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -342,11 +378,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CD0E75A19686EAD008FE1E3 /* loginBackground@2x.png in Resources */,
 				4C38C5FF1968240800496054 /* Images.xcassets in Resources */,
 				203DB26219682FAD002A51C6 /* Main.storyboard in Resources */,
-				4CD0E75819686EAD008FE1E3 /* twitterIcon@2x.png in Resources */,
-				4CD0E75919686EAD008FE1E3 /* loginButtonBg@2x.png in Resources */,
+				4CE6191B196964CD0008C0DF /* twitterIcon@2x.png in Resources */,
+				4CE6191C196964CD0008C0DF /* loginButtonBg@2x.png in Resources */,
+				4CE6191D196964CD0008C0DF /* loginBackground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,10 +435,14 @@
 			files = (
 				209A9878196860B30096DCCE /* SCAppService.m in Sources */,
 				209A987D196862920096DCCE /* SCAppService+Query.m in Sources */,
+				4CD0E77619695478008FE1E3 /* SCAppUserResponseSerializer.m in Sources */,
 				4C5686671968494300A1E8FC /* SCAccount.swift in Sources */,
 				203DB25319682822002A51C6 /* SCParticipantsViewController.swift in Sources */,
+				4CD0E76F196945DB008FE1E3 /* AUTwitterAuth.m in Sources */,
 				209A9880196862BB0096DCCE /* SCAppService+Request.m in Sources */,
 				203DB25419682822002A51C6 /* SCSignupViewController.swift in Sources */,
+				4CD0E76E196945DB008FE1E3 /* AUSocialAuth.m in Sources */,
+				4CD0E770196945DB008FE1E3 /* YPSocialAuth.m in Sources */,
 				20BB8FAB19683E9400FBB801 /* SCBeaconsManager.swift in Sources */,
 				209A987319685C860096DCCE /* SCUser.m in Sources */,
 				205150311968676F0001FDE6 /* SCConstants.m in Sources */,
@@ -527,11 +567,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = swiftcrowd/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftcrowd/Others/swiftcrowd-bridge.h";
 			};
 			name = Debug;
@@ -543,11 +585,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = swiftcrowd/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftcrowd/Others/swiftcrowd-bridge.h";
 			};
 			name = Release;

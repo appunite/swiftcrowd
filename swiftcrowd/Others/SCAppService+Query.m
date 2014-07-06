@@ -13,27 +13,28 @@
 
 //Serializers
 #import "SCUserResponseSerializer.h"
+#import "SCAppUserResponseSerializer.h"
+
+// models
+#import <AUAccount.h>
 
 @implementation SCAppService (Query)
 
-- (void)registerDeviceWithHandler:(void (^)(BOOL success, NSError *error))handler {
-//    // get device uuid
-//    NSString *uuid = [BCAccount deviceIdentifier];
-//    
-//    // prepare request
-//    NSMutableURLRequest *request = [[BCAppService sharedManager] requestRegisterDeviceWithUUID:uuid];
-//
-//    // enqueue request
-//    [BCAppService enqueueRequest:request responseSerializer:[AFJSONResponseSerializer serializer]
-//                         success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
-//                             // save device id
-//                             [[BCAccount account] updateUser:response];
-//                             
-//                             // fire block if any
-//                             if (handler) handler(YES, nil);
-//                         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                             if (handler) handler(NO, error);
-//                         }];
++ (void)createUserWithTwitterCredentials:(NSDictionary *)dict handler:(void (^)(AUAccount *account, BOOL success, NSError *error))handler {
+    NSMutableURLRequest *request = [[SCAppService sharedManager] requestRegisterUserWithTwitterTokens:dict];
+    
+    [[SCAppService sharedManager] enqueueRequest:request responseSerializer:[SCAppUserResponseSerializer serializer] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        AUAccount *sharedAccount = [AUAccount account];
+        [sharedAccount setAuthenticationToken:responseObject[@"authentication_token"] error:nil];
+        [sharedAccount updateUser:responseObject[@"user"]];
+        
+        handler(sharedAccount, YES, nil);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        handler(nil, NO, error);
+    }];
+    
 }
 
 - (void)fetchUserWithIds:(NSNumber *)ids handler:(void (^)(NSArray *users, NSError *error))handler {
