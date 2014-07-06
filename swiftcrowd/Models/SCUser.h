@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Mantle.h"
 
-@interface SCUser : MTLModel <MTLJSONSerializing>
+@interface SCUser : MTLModel <MTLJSONSerializing, NSSecureCoding>
 // map id
 @property (nonatomic, copy, readonly) NSNumber *uid;
 

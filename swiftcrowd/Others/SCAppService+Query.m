@@ -20,16 +20,12 @@
 
 @implementation SCAppService (Query)
 
-+ (void)createUserWithTwitterCredentials:(NSDictionary *)dict handler:(void (^)(AUAccount *account, BOOL success, NSError *error))handler {
++ (void)createUserWithTwitterCredentials:(NSDictionary *)dict handler:(void (^)(NSDictionary *userResponse, BOOL success, NSError *error))handler {
     NSMutableURLRequest *request = [[SCAppService sharedManager] requestRegisterUserWithTwitterTokens:dict];
     
     [[SCAppService sharedManager] enqueueRequest:request responseSerializer:[SCAppUserResponseSerializer serializer] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        AUAccount *sharedAccount = [AUAccount account];
-        [sharedAccount setAuthenticationToken:responseObject[@"authentication_token"] error:nil];
-        [sharedAccount updateUser:responseObject[@"user"]];
-        
-        handler(sharedAccount, YES, nil);
+        handler(responseObject, YES, nil);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         handler(nil, NO, error);

@@ -30,9 +30,18 @@ class SCSignupViewController: UIViewController {
     
     func loginButtonAction(sender: AnyObject?) {
         
-        func loginHandler(account: AUAccount?, success: Bool, error: NSError!) {
+        func loginHandler(accountResponse: NSDictionary?, success: Bool, error: NSError!) {
             if (success) {
-                let user = SCAccount.account.user
+                let account = SCAccount.account
+                
+                var intError: NSError?
+                let authToken = accountResponse!.objectForKey("authentication_token") as String
+                let user = accountResponse!.objectForKey("user") as SCUser
+                
+                account.registerAccountWithAuthenticationToken(authToken, expirationDate: nil, accountType: AUAccountTypeCustom, error: &intError)
+                
+                account.updateUser(user)
+                
                 self.dismissModalViewControllerAnimated(true)
             } else {
                 showErrorMessage(error!)
